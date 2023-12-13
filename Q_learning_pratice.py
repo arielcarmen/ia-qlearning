@@ -1,4 +1,5 @@
 import numpy as np
+import time
 from random import randint
 import random
 
@@ -84,13 +85,14 @@ if __name__ == '__main__':
         [0, 0, 0, 0]
     ]
 
-    for _ in range(500): #Nous allons itérer la partie i fois
+    for _ in range(50): #Nous allons itérer la partie i fois
         # Reset the game
         st = env.reset()
         while not env.is_finished():
             env.show()
-            # at = int(input("$>"))
-            at = take_action(st, Q, 0.4)
+            at = int(input("$>"))
+            # at = take_action(st, Q, 0.4)
+            # time.sleep(1)
 
             stp1, r = env.step(at)
             #print("s", stp1)
