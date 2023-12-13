@@ -139,3 +139,5 @@ record_video(env, Qtable_frozenlake, video_path, video_fps)
 
 from IPython.display import Image
 Image('./replay.gif')
+
+#https://www.datacamp.com/tutorial/introduction-q-learning-beginner-tutorial
