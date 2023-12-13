@@ -27,7 +27,7 @@ class EnvGrid(object):
 
     def reset(self):
         """
-            Reset world
+            Reinitialiser l'environnement
         """
         self.y = 2
         self.x = 0
@@ -35,7 +35,7 @@ class EnvGrid(object):
 
     def step(self, action):
         """
-            Action: 0, 1, 2, 3
+            Actions: 0 (haut), 1(bas), 2(gauche), 3(droite)
         """
         self.y = max(0, min(self.y + self.actions[action][0],2))
         self.x = max(0, min(self.x + self.actions[action][1],2))
@@ -44,7 +44,7 @@ class EnvGrid(object):
 
     def show(self):
         """
-            Show the grid
+            Afficher la grille
         """
         print("---------------------")
         y = 0
@@ -60,7 +60,7 @@ class EnvGrid(object):
         return self.grid[self.y][self.x] == 1
 
 def take_action(st, Q, eps):
-    # Take an action
+    # Effectuer une action
     if random.uniform(0, 1) < eps:
         action = randint(0, 3)
     else: # Or greedy action
@@ -84,12 +84,12 @@ if __name__ == '__main__':
         [0, 0, 0, 0]
     ]
 
-    for _ in range(100): #We gonna play 100 games
+    for _ in range(500): #Nous allons itérer la partie i fois
         # Reset the game
         st = env.reset()
         while not env.is_finished():
-            #env.show()
-            #at = int(input("$>"))
+            env.show()
+            # at = int(input("$>"))
             at = take_action(st, Q, 0.4)
 
             stp1, r = env.step(at)
