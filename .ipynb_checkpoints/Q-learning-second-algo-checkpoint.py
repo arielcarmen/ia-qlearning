@@ -41,7 +41,7 @@ def greedy_policy(Qtable, state):
   return action
 
 # Training parameters
-n_training_episodes = 100
+n_training_episodes = 10000
 learning_rate = 0.7        
 
 # Evaluation parameters
@@ -133,7 +133,7 @@ def record_video(env, Qtable, out_directory, fps=1):
     images.append(img)
   imageio.mimsave(out_directory, [np.array(img) for i, img in enumerate(images)], fps=fps)
 
-video_path="./replay.gif"
+video_path="/content/replay.gif"
 video_fps=1
 record_video(env, Qtable_frozenlake, video_path, video_fps)
 
